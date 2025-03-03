@@ -10,7 +10,7 @@ async function initializeDatabase() {
 }
 
 // ✅ Seed Users Table
-async function seedUsers(sql: postgres.TransactionSql<{}>) {
+async function seedUsers(sql: postgres.TransactionSql<Record<string, unknown>>) {
   await sql`
     CREATE TABLE IF NOT EXISTS users (
       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
@@ -31,7 +31,7 @@ async function seedUsers(sql: postgres.TransactionSql<{}>) {
 }
 
 // ✅ Seed Customers Table
-async function seedCustomers(sql: postgres.TransactionSql<{}>) {
+async function seedCustomers(sql: postgres.TransactionSql<Record<string, unknown>>) {
   await sql`
     CREATE TABLE IF NOT EXISTS customers (
       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
@@ -49,7 +49,7 @@ async function seedCustomers(sql: postgres.TransactionSql<{}>) {
 }
 
 // ✅ Seed Invoices Table
-async function seedInvoices(sql: postgres.TransactionSql<{}>) {
+async function seedInvoices(sql: postgres.TransactionSql<Record<string, unknown>>) {
   await sql`
     CREATE TABLE IF NOT EXISTS invoices (
       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
@@ -68,7 +68,7 @@ async function seedInvoices(sql: postgres.TransactionSql<{}>) {
 }
 
 // ✅ Seed Revenue Table
-async function seedRevenue(sql: postgres.TransactionSql<{}>) {
+async function seedRevenue(sql: postgres.TransactionSql<Record<string, unknown>>) {
   await sql`
     CREATE TABLE IF NOT EXISTS revenue (
       month VARCHAR(4) NOT NULL UNIQUE,
